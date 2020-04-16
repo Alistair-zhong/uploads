@@ -1,0 +1,14 @@
+{
+    "name": "niro/uploads",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "niro",
+            "email": "48372r@gmail.com"
+        }
+    ],
+    "require": {
+        "orchestra/testbench": "^5.1"
+    }
+}
