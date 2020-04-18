@@ -18,7 +18,11 @@
             "niro\\Uploads\\": "src/"
         }
     },
-    "autoload-dev": {
-        "niro\\Uploads\\Tests\\": "tests/"
+    "autoload-dev":{
+        "psr-4":{
+            "niro\\Uploads\\Tests\\": "tests"
+        }
     }
 }
+
+

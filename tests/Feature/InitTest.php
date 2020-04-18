@@ -1,6 +1,6 @@
 <?php
 
-namespace niro\uploads\tests;
+namespace niro\Uploads\Tests\Feature;
 
 use Orchestra\Testbench\TestCase;
 
