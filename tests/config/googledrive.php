@@ -6,5 +6,6 @@ return [
         "clientSecret"  => 'NSZCwTyV9-zIRwQG-Enj1UdM',
         "refreshToken"  => '1//04TdDrqC8nOToCgYIARAAGAQSNwF-L9IrYKGDP7xINoOZ_XRaOMUIefcxIW4sYKCgXlyxqJa-nyTyAO4z3t6NrS57yikAEG3qjTQ',
         "folderId"      => '1NrzQCTiZsRZdj1sAyARDFjd7tTaFjP05',
+        "folder"      => '迦南云项目生活/迦南云存储文件夹',
     ],
 ];

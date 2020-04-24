@@ -4,10 +4,29 @@ return [
     /**
      * 指定默认存储磁盘   
      * 注意 :
-     * 在此填写的必须在config/filesystem.php文件中已配置
+     * 在此填写的必须在config/filesystem.php文件中已配置或者在接下来的disk中配置
      */
-    'default'       => 'google',
+    'default'       => env('UPLOAD_DISK','google'),
 
+    /**
+     * 此处是配置config/filesystem文件中的disks中的存储磁盘
+     * 最终‘default’和‘default_disk’的配置会合并到config/filesystem文件中
+     * 格式为 'google'    => [
+     *   "driver"        => 'google',
+     *   "clientId"      => '1066414826686-c2vfuorn7pao821j14ef9hl4lfluhc8n.apps.googleusercontent.com',
+     *   "clientSecret"  => 'NSZCwTyV9-zIRwQG-Enj1UdM',
+     *   "refreshToken"  => '1//    04TdDrqC8nOToCgYIARAAGAQSNwF-L9IrYKGDP7xINoOZ_XRaOMUIefcxIW4sYKCgXlyxqJa-nyTyAO4z3t6NrS57yikAEG3qjTQ',
+     *   "folderId"      => '1NrzQCTiZsRZdj1sAyARDFjd7tTaFjP05',
+     * ],
+     */
+    'default_disk'    => [
+        "driver"        => 'google',
+        "clientId"      => '1066414826686-c2vfuorn7pao821j14ef9hl4lfluhc8n.apps.googleusercontent.com',
+        "clientSecret"  => 'NSZCwTyV9-zIRwQG-Enj1UdM',
+        "refreshToken"  => '1//04TdDrqC8nOToCgYIARAAGAQSNwF-L9IrYKGDP7xINoOZ_XRaOMUIefcxIW4sYKCgXlyxqJa-nyTyAO4z3t6NrS57yikAEG3qjTQ',
+        "folderId"      => '1NrzQCTiZsRZdj1sAyARDFjd7tTaFjP05',
+        "folder"      => '迦南云项目生活/迦南云存储文件夹',
+    ],
     /**
      * 上传文件的名字，即表单input中的name属性值
      */
@@ -18,4 +37,5 @@ return [
      * 因为我们使用队列异步上传文件，而UploadFiled对象是无法被序列化的，所以我们需要先把文件存到服务器的临时文件夹,等队列执行结束后删除临时文件 
      */
     'tempory_dir'   => '',
+
 ];

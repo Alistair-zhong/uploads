@@ -1,27 +1,31 @@
 <?php
 
-namespace niro\uploads;
+namespace niro\Uploads;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
 
 class UploadBaseServiceProvider extends ServiceProvider{
     public function boot(){
-
         $this->registerPublish();
-        $this->registerFacades();
         $this->registerRoutes();
     }
-
+    
     public function register(){
-        
+        $this->registerFacades();
     }
 
 
     public function registerFacades(){
-        $this->app->bind('Uploader',function($app){
-            return new niro\uploads\Uploader\Uploader;
+        $this->app->singleton('Uploader',function($app){
+            return new \niro\Uploads\Uploader\Uploader;
         });
+        $this->app->singleton('HandlerContainer',function($app){
+            return new \niro\Uploads\HandlerContainer;
+        });
+
     }
 
     private function registerRoutes(){
@@ -34,32 +38,25 @@ class UploadBaseServiceProvider extends ServiceProvider{
         return [
             'prefix'        => 'google',
             'as'            => 'google.',
-            'namespace'     => 'niro\uploads\Http\Controller\\'
+            'namespace'     => "niro\Uploads\Http\Controllers"
         ];  
     }
 
     public function registerPublish(){
         $this->publishes([
-            __DIR__ . "/../config/uploads.php" => config_path('uploads.php'),
+            __DIR__ . "/../config/uploads.php"                  => config_path('uploads.php'),
+            __DIR__ . "/../stubs/UploadServiceProvider.stub"    => app_path('Providers/UploadServiceProvider.php',)
         ],'uploads-config');
+        
+        $this->publishes([
+            __DIR__ . "/../resources/views/uploads.blade.php"       => resource_path('views/test/uploads.blade.php'),
+            __DIR__ . "/../resources/assets/bootstrap"              => public_path('bootstrap'),
+            __DIR__ . "/../stubs/GoogleDriveServiceProvider.stub"   => app_path('Providers/GoogleDriveServiceProvider.php'),
+            __DIR__ . "/Http/Controllers/GoogleDriveController.php" => app_path('Http/Controllers/GoogleDriveController.php'),
+        ],'uploads-google');
     }
 
 
 
 
-
-
-
-
-
-    // protected function registerPublish(){
-    //     $this->publishes([
-    //         __DIR__."/../config/parse.php"      => config_path('parse.php'),
-    //         __DIR__."/../database/migrations/2020_04_05_000000_create_posts_table.php"  => database_path('migrations/2020_04_05_000000_create_posts_table.php'),
-    //     ],'parse-config');
-        
-    //     $this->publishes([
-    //         __DIR__."/Console/stubs/ParseServiceProvider.stub"  => app_path('Providers/ParseServiceProvider.php'),
-    //     ],'parse-provider');
-    // }
 }

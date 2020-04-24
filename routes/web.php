@@ -18,7 +18,7 @@
     })->name('show_image');
 
     Route::get('upfile',function(){
-        return view('admin.test.googledrive');
+        return view('test.uploads');
     })->name('upfile');
 
     Route::post('store',function(Request $request){

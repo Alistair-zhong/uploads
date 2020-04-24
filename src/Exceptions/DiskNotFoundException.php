@@ -1,5 +1,5 @@
 <?php
-namespace niro\uploads\Exceptions;
+namespace niro\Uploads\Exceptions;
 
 use Exception;
 

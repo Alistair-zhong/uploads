@@ -13,16 +13,18 @@ class InitTest extends TestCase{
 
     public function setUp():void{
         parent::setUp();
-        // $this->getEnvironmentSetUp($app);
     }
     
     /**
     *@test
     */
     public function configGoogle_fun_can_run_properly(){
-        // dump($this->configGoogle());
-        // dump(require(__DIR__ . "/../config/googledrive.php"));
-        $this->assertTrue(true);
+        $config = $this->configGoogle();
+        $this->assertTrue(is_array($config));
+
+        $first_key = array_key_first($config);
+        dump(app()['config']['filesytem.disks']);
+        $this->assertTrue(isset(app()['config']));
     }
 
 //========================================= 配置部分========================
@@ -38,7 +40,7 @@ class InitTest extends TestCase{
         $app['config']->push('filesytem.disks',$this->configGoogle());
     }
 
-    protected function configGoogle(){
+    protected function configGoogle():array{
         return require(__DIR__ . "/../config/googledrive.php");
     }
 

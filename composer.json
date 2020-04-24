@@ -22,6 +22,13 @@
         "psr-4":{
             "niro\\Uploads\\Tests\\": "tests"
         }
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "niro\\Uploads\\UploadBaseServiceProvider"
+            ]
+        }
     }
 }
 
