@@ -44,9 +44,7 @@ class GoogleUpload implements ShouldQueue
         $filename = Storage::disk(config('uploads.default'))->put($this->path,$file);
         $fileMeta = $this->getFileByName($filename);
 
-        if( ! is_null($this->handlerName)){
-            HandlerContainer::handleData($this->handlerName,$fileMeta);
-        }
+        // TODO 使用事件机制处理数据
 
         Storage::delete(basename($this->file));
     }

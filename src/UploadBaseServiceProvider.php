@@ -22,9 +22,6 @@ class UploadBaseServiceProvider extends ServiceProvider{
         $this->app->singleton('Uploader',function($app){
             return new \niro\Uploads\Uploader\Uploader;
         });
-        $this->app->singleton('HandlerContainer',function($app){
-            return new \niro\Uploads\HandlerContainer;
-        });
 
     }
 
