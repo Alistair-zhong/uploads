@@ -42,9 +42,9 @@ class HandlerContainer {
 
     /**
      * 注册处理类数组  可同时注册多个
-     * @param array handler
+     * @param ArrayAccess handler
      */
-    public function registerHandlers(array $handlers):void{
+    public function registerHandlers(\ArrayAccess $handlers):void{
         foreach($handlers as $key => $value){
             $this->registerHandler($key,$value);
         }

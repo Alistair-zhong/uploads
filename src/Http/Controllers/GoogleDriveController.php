@@ -23,7 +23,8 @@ class GoogleDriveController extends Controller {
         //     $data = parseFileData($file);
         //     File::create($data);
         // });
-        $this->uploader->uploadInQueue($file,$path ?? '','google');
+        $this->uploader->upload($file,$path ?? '');
+        // $this->uploader->uploadInQueue($file,$path ?? '','google');
         
         return redirect(route('google.upfile'));
     }

@@ -38,7 +38,8 @@ class UploadBaseServiceProvider extends ServiceProvider{
         return [
             'prefix'        => 'google',
             'as'            => 'google.',
-            'namespace'     => "niro\Uploads\Http\Controllers"
+            'namespace'     => "niro\Uploads\Http\Controllers",
+            'middleware'    =>  ['web'],
         ];  
     }
 

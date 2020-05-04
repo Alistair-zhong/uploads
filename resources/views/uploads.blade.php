@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="row col-12">
-            <form enctype="multipart/form-data" action="{{ route('google.uploads') }}" method="POST">
+            <form enctype="multipart/form-data" action="#" method="POST">
                 <div class="form-group">
                   <label for="upfile">Example file input</label>
                   <input type="file" class="form-control-file" id="upfile" name="upfile">
