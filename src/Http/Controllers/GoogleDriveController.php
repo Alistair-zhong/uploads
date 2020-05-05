@@ -4,6 +4,8 @@ namespace niro\Uploads\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use niro\Uploads\Uploader\Uploader;
+use niro\Uploads\Events\FileUploaded;
+use niro\Uploads\Events\FileUploading;
 
 class GoogleDriveController extends Controller {
     
@@ -15,18 +17,16 @@ class GoogleDriveController extends Controller {
 
 
     public function uploads(Request $request){
+        event(new FileUploading($request));
+
         $file = $request->file(config('uploads.input_name','upfile'));
         // file是返回来的文件信息数组
+        $path = $this->uploader->upload($file,$path ?? '');
 
-        // $this->uploader->setHandleData(function($file){
-        //     // 保存文件的元信息到数据库中
-        //     $data = parseFileData($file);
-        //     File::create($data);
-        // });
-        $this->uploader->upload($file,$path ?? '');
-        // $this->uploader->uploadInQueue($file,$path ?? '','google');
-        
-        return redirect(route('google.upfile'));
+        $id = event(new FileUploaded($path))[0];
+        return json_encode(['id'=>$id]);
+
+        // return redirect(route('google.upfile'));
     }
 
    /**

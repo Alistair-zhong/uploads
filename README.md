@@ -72,3 +72,5 @@
 
 publish ServiceProvider 之后记得在config/app.php中注册
 
+事件FileUploaded 适用于处理文件上传完之后一些数据库的操作，如保存用户指定的记录到数据库中，并返回指定信息
+

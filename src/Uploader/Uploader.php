@@ -22,7 +22,7 @@ class Uploader {
      * @param string path
      */
     public function upload($file,$path = '',$hanlerName = null){
-        $local = $this->store->putFileAs($path,$file,$file->getClientOriginalName());
+        return $this->store->putFileAs($path,$file,$file->getClientOriginalName());
     }
 
     /**
@@ -34,14 +34,6 @@ class Uploader {
         $store_path = storage_path('app/'.$local);
 
         GoogleUpload::dispatch($store_path,$path,$hanlerName);
-    }
-
-    public function setHandleData(\Closure $afterUpload = null){
-        $this->afterUpload = $afterUpload;
-        $that = $this;
-        app()->bindMethod(GoogleUpload::class.'@handle',function($job,$app)use($that){
-            return $job->handle($that);
-        });
     }
 
 }
