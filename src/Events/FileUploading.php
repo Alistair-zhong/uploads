@@ -42,7 +42,7 @@ class FileUploading
     /**
      * @return string
      */
-    public function disk()
+    public function disk():string
     {
         return $this->disk;
     }
@@ -50,7 +50,7 @@ class FileUploading
     /**
      * @return string
      */
-    public function path()
+    public function path():string
     {
         return $this->path;
     }
@@ -58,7 +58,7 @@ class FileUploading
     /**
      * @return array
      */
-    public function fileMeta()
+    public function fileMeta():array
     {
         return array_map(function ($file) {
             return [

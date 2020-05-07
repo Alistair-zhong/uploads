@@ -20,9 +20,10 @@ class Uploader {
     /**
      * @param UploadedFile file  
      * @param string path
+     * @param bool  useRandomName 确定保存文件时是否使用原始的名字
      */
-    public function upload($file,$path = '',$hanlerName = null){
-        return $this->store->putFileAs($path,$file,$file->getClientOriginalName());
+    public function upload($file,$path = '',$useOldName = true){
+        return $this->store->putFileAs($path,$file,$useOldName ? $file->getClientOriginalName() : $file->hashName());
     }
 
     /**

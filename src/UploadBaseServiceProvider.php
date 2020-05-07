@@ -33,8 +33,8 @@ class UploadBaseServiceProvider extends ServiceProvider{
 
     private function routeConfiguration(){
         return [
-            'prefix'        => 'google',
-            'as'            => 'google.',
+            'prefix'        => 'fileupload',
+            'as'            => 'fileupload.',
             'namespace'     => "niro\Uploads\Http\Controllers",
             'middleware'    =>  ['web'],
         ];  

@@ -39,7 +39,7 @@ class FileUploaded {
     /**
      * @return string
      */
-    public function disk()
+    public function disk():string
     {
         return $this->store;
     }
@@ -47,7 +47,7 @@ class FileUploaded {
     /**
      * @return string
      */
-    public function path()
+    public function path():string
     {
         return $this->path;
     }
@@ -56,7 +56,7 @@ class FileUploaded {
      * 根据文件的名字和路径获取文件信息
      * @return array
      */
-    public function fileMeta()
+    public function fileMeta():array
     {
         return $this->metaData;
     }
