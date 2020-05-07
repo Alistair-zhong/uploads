@@ -104,5 +104,5 @@
     });
 
     // 上传文件
-    Route::post('uploads','GoogleDriveController@uploads')->name('uploads');
+    Route::post('uploads','FileUploadController@uploads')->name('uploads');
 

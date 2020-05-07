@@ -7,7 +7,7 @@ use niro\Uploads\Uploader\Uploader;
 use niro\Uploads\Events\FileUploaded;
 use niro\Uploads\Events\FileUploading;
 
-class GoogleDriveController extends Controller {
+class FileUploadController extends Controller {
     
     protected $uploader;
 
@@ -23,9 +23,8 @@ class GoogleDriveController extends Controller {
         // file是返回来的文件信息数组
         $path = $this->uploader->upload($file,$path ?? '');
 
-        $id = event(new FileUploaded($path))[0];
+        $id = optional(event(new FileUploaded($path)))[0];
         return json_encode(['id'=>$id]);
-
         // return redirect(route('google.upfile'));
     }
 

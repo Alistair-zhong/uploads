@@ -2,6 +2,7 @@
 
 namespace niro\Uploads\Tests\Feature;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use Orchestra\Testbench\TestCase;
 use niro\Uploads\Jobs\GoogleUpload;
@@ -22,7 +23,7 @@ class CRUDTest extends TestCase {
     *@test
     */
     public function a_file_can_be_upload_to_google_drive(){
-        $image = UploadedFile::fake()->image(Hash::make(now()) . ".jpeg");
+        $image = UploadedFile::fake()->image(Str::random(10) . ".jpeg");
 
         $old_count = count($this->store->listContents());
         app('Uploader')->upload($image);
@@ -37,12 +38,12 @@ class CRUDTest extends TestCase {
     public function a_file_can_be_uploaded_through_controller(){
         $this->withoutExceptionHandling();
 
-        $image = UploadedFile::fake()->image(Hash::make(now()) . ".jpeg");
+        $image = UploadedFile::fake()->image(Str::random(10) . ".jpeg");
         $old_count = count($this->store->listContents());
 
         $this->post(route('google.uploads'),[
             'upfile'    => $image,
-        ])->assertStatus(302);
+        ])->assertStatus(200);
         $now_count = count($this->store->listContents());
 
         $this->assertEquals($old_count + 1, $now_count);

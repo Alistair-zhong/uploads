@@ -9,14 +9,15 @@
         }
     ],
     "require": {
-        "orchestra/testbench": "^5.1",
+        "orchestra/testbench": "3.8.x-dev",
         "masbug/flysystem-google-drive-ext": "^1.1",
         "nao-pon/flysystem-google-drive": "~1.1"
     },
     "autoload": {
         "psr-4": {
             "niro\\Uploads\\": "src/"
-        }
+        },
+        "files":["helpers.php"]
     },
     "autoload-dev":{
         "psr-4":{
