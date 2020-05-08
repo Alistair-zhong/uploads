@@ -17,7 +17,9 @@
         "psr-4": {
             "niro\\Uploads\\": "src/"
         },
-        "files":["helpers.php"]
+        "files":[
+            "helpers.php"
+        ]
     },
     "autoload-dev":{
         "psr-4":{

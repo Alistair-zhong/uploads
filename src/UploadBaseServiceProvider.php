@@ -43,7 +43,7 @@ class UploadBaseServiceProvider extends ServiceProvider{
     public function registerPublish(){
         $this->publishes([
             __DIR__ . "/../config/uploads.php"                  => config_path('uploads.php'),
-            __DIR__ . "/../stubs/UploadServiceProvider.stub"    => app_path('Providers/UploadServiceProvider.php',)
+            // __DIR__ . "/../stubs/UploadServiceProvider.stub"    => app_path('Providers/UploadServiceProvider.php',)
         ],'uploads-config');
         
         $this->publishes([
