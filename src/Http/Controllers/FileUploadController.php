@@ -24,8 +24,8 @@ class FileUploadController extends Controller {
         // file是返回来的文件信息数组
         $path = $this->uploader->upload($file,$request->path ?? '');
 
-        $id = optional(event(new FileUploaded($path)))[0];
-        return json_encode(['id'=>$id]);
+        $data = optional(event(new FileUploaded($path)))[0];
+        return json_encode(['data'=>$data]);
     }
 
    /**
