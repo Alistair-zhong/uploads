@@ -26,9 +26,21 @@ return [
     'input_name'    => 'upfile',
 
     /**
-     * 临时存放目录
-     * 因为我们使用队列异步上传文件，而UploadFiled对象是无法被序列化的，所以我们需要先把文件存到服务器的临时文件夹,等队列执行结束后删除临时文件 
+     * 上传文件的最大size   单位kb
      */
-    'tempory_dir'   => '',
+    'max_size'   => '50000',
 
+    /**
+     * formRequest的验证规则,可在这里重写验证规则
+     */
+    'rule'  => [
+
+    ],
+
+    /**
+     * 实现自定义formRequest类   需要时再做，实现接口绑定即可
+     * 如果上面自定义规则不能满足你，那么可以直接重写验证类
+     * 在此处填写你重写的验证类的全路径
+     */
+    'UploadRequest' => 'niro\Uploads\Http\Requests\UploadRequest'
 ];

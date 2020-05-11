@@ -11,6 +11,7 @@ class UploadBaseServiceProvider extends ServiceProvider{
     public function boot(){
         $this->registerPublish();
         $this->registerRoutes();
+        // $this->registerCustomFormRequest();
     }
     
     public function register(){
@@ -57,6 +58,14 @@ class UploadBaseServiceProvider extends ServiceProvider{
         ],'uploads-google');
     }
 
+    // public function registerCustomFormRequest(){
+    //     if($custom = config('uploads.UploadRequest')){
+    //         $this->app->resolving('niro\Uploads\Http\Requests\UploadRequest',function($object, $app)use($custom){
+    //             return new $custom;
+    //         });
+    //     }
+
+    // }
 
 
 
