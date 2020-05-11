@@ -31,7 +31,7 @@ class FileUploaded {
      */
     public function __construct(string $path)
     {
-        $this->store = Storage::disk(config('uploads.default','google'));
+        $this->store = Storage::disk(config('uploads.default'));
         $this->path = $path;
         $this->metaData = $this->store->getMetadata($path);
     }

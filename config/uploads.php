@@ -6,7 +6,7 @@ return [
      * 注意 :
      * 在此填写的必须在config/filesystem.php文件中已配置或者在接下来的disk中配置
      */
-    'default'       => env('UPLOAD_DISK','public'),
+    'default'       => 'public',
 
     /**
      * 此处是配置config/filesystem文件中的disks中的存储磁盘
