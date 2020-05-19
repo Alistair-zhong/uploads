@@ -1,9 +1,11 @@
-<?php 
+<?php
+
 namespace niro\Uploads\Events;
 
 use Illuminate\Support\Facades\Storage;
 
-class FileUploaded {
+class FileUploaded
+{
     /**
      * @var string
      */
@@ -39,7 +41,7 @@ class FileUploaded {
     /**
      * @return string
      */
-    public function disk():string
+    public function disk(): string
     {
         return $this->store;
     }
@@ -47,16 +49,17 @@ class FileUploaded {
     /**
      * @return string
      */
-    public function path():string
+    public function path(): string
     {
         return $this->path;
     }
 
     /**
-     * 根据文件的名字和路径获取文件信息
+     * 根据文件的名字和路径获取文件信息.
+     *
      * @return array
      */
-    public function fileMeta():array
+    public function fileMeta(): array
     {
         return $this->metaData;
     }
@@ -66,6 +69,6 @@ class FileUploaded {
      */
     public function overwrite()
     {
-        return !!$this->overwrite;
+        return (bool) $this->overwrite;
     }
 }

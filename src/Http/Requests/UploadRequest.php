@@ -23,13 +23,14 @@ class UploadRequest extends FormRequest
      */
     public function rules()
     {
-        if($rule = config('uploads.rule')){
+        if ($rule = config('uploads.rule')) {
             return $rule;
         }
-        
+
         $max_size = config('uploads.max_size');
+
         return [
-            config('uploads.input_name')    => "required|file|max:{$max_size}" ,
+            config('uploads.input_name') => "required|file|max:{$max_size}",
         ];
     }
 }

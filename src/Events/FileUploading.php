@@ -42,7 +42,7 @@ class FileUploading
     /**
      * @return string
      */
-    public function disk():string
+    public function disk(): string
     {
         return $this->disk;
     }
@@ -50,7 +50,7 @@ class FileUploading
     /**
      * @return string
      */
-    public function path():string
+    public function path(): string
     {
         return $this->path;
     }
@@ -58,12 +58,12 @@ class FileUploading
     /**
      * @return array
      */
-    public function fileMeta():array
+    public function fileMeta(): array
     {
         return array_map(function ($file) {
             return [
-                'name'      => $file->getClientOriginalName(),
-                'path'      => $this->path.'/'.$file->getClientOriginalName(),
+                'name' => $file->getClientOriginalName(),
+                'path' => $this->path.'/'.$file->getClientOriginalName(),
                 'extension' => $file->extension(),
             ];
         }, $this->files);
@@ -74,6 +74,6 @@ class FileUploading
      */
     public function overwrite()
     {
-        return !!$this->overwrite;
+        return (bool) $this->overwrite;
     }
 }
