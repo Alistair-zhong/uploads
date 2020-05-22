@@ -42,7 +42,7 @@
         }, $this->files);
     }
 
-    --- FileUploaded 提供的方法
+
     public function disk():string
     {
         return $this->store;
