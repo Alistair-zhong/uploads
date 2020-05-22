@@ -29,21 +29,4 @@ class FileUploadController extends Controller
 
         return json_encode(['data' => $data]);
     }
-
-    /*
-      * file 文件结构 为
-      * 3 => array:10 [
-      *      "name" => "tY6v4LwMHtxyyT334TiouGX3kKmMly8Tpd2cXoi4.jpeg"
-      *      "type" => "file"
-      *      "path" => "1Wbty0Sjg45n8hnzsaKJMI4RiH2foi99N"
-      *      "filename" => "tY6v4LwMHtxyyT334TiouGX3kKmMly8Tpd2cXoi4"
-      *      "extension" => "jpeg"
-      *      "timestamp" => 1587310163
-      *      "mimetype" => "image/jpeg"
-      *      "size" => 6232
-      *      "dirname" => ""
-      *      "basename" => "1Wbty0Sjg45n8hnzsaKJMI4RiH2foi99N"
-      * ]
-      *
-      */
 }

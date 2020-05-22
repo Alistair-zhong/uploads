@@ -3,7 +3,6 @@
 ### Installation
 
     方式一：composer require niro/uploads
-    方式二：git clone http://gitlab.199101.xyz/Alistair-zhong/niro_uploads.git
 
 ### Config
 
