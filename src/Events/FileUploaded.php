@@ -29,13 +29,18 @@ class FileUploaded
     /**
      * FilesUploaded constructor.
      *
-     * @param string $path
+     * @param string path
+     * @param string origin_name
      */
-    public function __construct(string $path)
+    public function __construct(string $path, string $origin_name = '')
     {
         $this->store = Storage::disk(config('uploads.default'));
         $this->path = $path;
         $this->metaData = $this->store->getMetadata($path);
+
+        if ($origin_name) {
+            $this->metaData['origin_name'] = $origin_name;
+        }
     }
 
     /**
