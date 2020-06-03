@@ -25,7 +25,7 @@ class Uploader
      */
     public function upload($file, $path = '', $useOldName = true)
     {
-        return $this->store->putFileAs($path, $file, $useOldName ? $file->getClientOriginalName() : random_name().'.'.$file->extension());
+        return $this->store->putFileAs($path, $file, $useOldName ? $file->getClientOriginalName() : random_name().'.'.$file->getClientOriginalExtension());
     }
 
     /**
